@@ -45,10 +45,20 @@
                                         <a href="edituser.php?id=<?php echo $result['id']; ?>" class="btn btn-primary">Edit</a>
                                     </td> 
                                     <td>
-                                        <a href="deleteuser.php?id=<?php echo $result['id']; ?>" onclick="return confirm()" class="btn btn-primary">Delete</a>
+                                        <a href="deleteuser.php?id=<?php echo $result['id']; ?>" onclick="return val()" class="btn btn-primary">Delete</a>
                                     </td>      
                                 </tr>
-                        <?php } ?>
+                                <?php } ?>
+                                <script type="text/javascript">
+                                    function val()
+                                    {
+                                        conf = confirm('Are you sure to delete this user?');
+                                        if (conf)
+                                            return true
+                                        else
+                                            return false
+                                    }
+                                </script>
                         </tbody>
                     </table>
                     <center>
@@ -64,7 +74,6 @@
                 </div>
             </div>
         </div>
-
-     </div>
+    </div>
   
 </div>

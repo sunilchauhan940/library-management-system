@@ -2,16 +2,14 @@
 <div class="container">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Library Management System</a>
+                <a href="index.php">Library Management System</a>
             </li>
             <li class="breadcrumb-item active">Add User</li>
         </ol>
         <br>
         <form method="post" action="adduser.php">
             <div class="col-md-8">
-                <div class="title">
-                    <h2><i class="fa fa-user"></i>  Add User</h2>
-                </div>
+                <h2><i class="fa fa-user"></i>  Add User</h2>
                 <br>
                 <div class="row">
                     <div class="col-md-12">
