@@ -16,7 +16,7 @@
         <div class="card-header">
             <div class="table-responsive">
                 <div class="container">
-                    <input class="form-control mb-4" id="myInput" type="text" placeholder="Search User">
+                    <input class="form-control mb-4" id="search-Input" type="text" placeholder="Search User">
                     <table  class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -77,3 +77,13 @@
     </div>
   
 </div>
+<script>
+    $(document).ready(function () {
+        $("#search-Input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
