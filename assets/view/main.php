@@ -9,7 +9,7 @@
                                 <b>Add Admin</b>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form method="post" action="controllers/datainsert.php">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">
@@ -43,6 +43,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label class="col-xl-3">Address<i class="text-danger">*</i></label>
+                                        <div class="form-group">
+                                            <div class="col-xs-7">
+                                                <textarea class="textarea" placeholder="Enter Address..." name= "address" style="width: 300%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-xl-3">Gender<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
@@ -64,7 +72,7 @@
                                     </div>
                                     <div class="text-center">
                                         <div class="col-xl-8">
-                                            <input type="submit" id="add" class="btn btn-lg btn-success" value="Save">
+                                            <input type="submit" id="add" class="btn btn-lg btn-success" value="Save" name="submit">
                                             <input type="reset" class="btn btn-lg btn-danger" name="Reset"/>                                
                                         </div>   
                                     </div>
@@ -74,6 +82,6 @@
                     </div>
                 </main>
                 <?php
-                    include "footer.php";
-                    ?>
+                    include "footer.php";   
+                ?>
             </div>

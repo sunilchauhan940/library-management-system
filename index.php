@@ -1,3 +1,6 @@
+<?php
+      include "controllers/conn.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +15,6 @@
 
 <body>
 <?php
-    include "conn.php";
     include "assets/view/header.php";
     include "assets/view/sidebar.php";
     include "assets/view/main.php";
