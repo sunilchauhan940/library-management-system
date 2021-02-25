@@ -1,80 +1,70 @@
-<?php include('header.php'); ?>
+<?php include('connect.php');
+    include('header.php'); 
+    $query = "SELECT * FROM users;";
+    $data = mysqli_query($conn, $query);
+?>
 <div class="container">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">Library Management System</a>
-            </li>
-            <li class="breadcrumb-item active">Add User</li>
-        </ol>
-        <br>
-        <form method="post" action="addmanager.php">
-                <div class="title">
-                    <h2><i class="fa fa-user"></i>  Add User</h2>
-                </div>
-                <br>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Full Name</label>
-                                <input type="text" name="name" id="name" minlength="2" required="" class="form-control" placeholder="Full Name">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="email_id" class="form-control" required="" name="email_id" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Phone no</label>
-                                <input type="tel"  id="phone_no" class="form-control" required="" name="phone_no" placeholder="Phone no">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" id="password" minlength="6" maxlength="16" name="password" required="" class="form-control" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Confirm Password</label>
-                                <input type="password" id="cpassword" minlength="6" maxlength="16" name="cpassword" required="" class="form-control" placeholder="Confirm Password">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Gender :</label>
-                                <select name="gender" class="form-control" required="">
-                                    <option value="">Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6"-->
-                            <div class="form-group">
-                                <label>Birth Date</label>
-                                <input type="date" id="bdate" name="birth_date" class="form-control" placeholder="Birth Date">
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="submit" >Add User</button>
-                    <button class="btn btn-primary" name="cancel" >Cancel</button>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Library Management System</a>
+        </li>
+        <li class="breadcrumb-item active">User Details</li>
+    </ol>
+    <a class="btn btn-dark" href="adduser.php">Add User</a> 
+    <br><br>
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="table-responsive">
+                <div class="container">
+                    <input class="form-control mb-4" id="myInput" type="text" placeholder="Search User">
+                    <table  class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone no</th>
+                                <th>Gender</th>
+                                <th>Birth Date</th>
+                                <th>Address</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+                            <?php
+                            while ($result = mysqli_fetch_array($data)) {
+                                ?>
+                                <tr>
+                                    <td> <?php echo $result ['name']; ?> </td>
+                                    <td><?php echo $result ['email']; ?></td>
+                                    <td><?php echo $result ['mobile']; ?></td>
+                                    <td><?php echo $result ['gender']; ?></td>
+                                    <td><?php echo $result ['birth_date']; ?></td>
+                                    <td><?php echo $result ['address']; ?></td>
+                                    <td>
+                                        <a href="edituser.php?id=<?php echo $result['id']; ?>" class="btn btn-primary">Edit</a>
+                                    </td> 
+                                    <td>
+                                        <a href="deleteuser.php?id=<?php echo $result['id']; ?>" onclick="return confirm()" class="btn btn-primary">Delete</a>
+                                    </td>      
+                                </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                    <center>
+                        <?php
+                        $query = "SELECT count(*) as count FROM users";
+                        $result = mysqli_query($conn, $query);
+                        $num_users = mysqli_fetch_assoc($result)['count'];
+                        if ($num_users == 0) {
+                            echo "No Users Found";
+                        }
+                        ?>
+                    </center>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+
+     </div>
+  
 </div>
-</body>
-</html>
