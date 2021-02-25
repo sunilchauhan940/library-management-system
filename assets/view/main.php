@@ -1,3 +1,7 @@
+<?php
+    include "controllers/conn.php";
+    
+?>
 <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
@@ -9,7 +13,7 @@
                                 <b>Add Admin</b>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="controllers/datainsert.php">
+                                <form method="post" action="display_data.php">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">
