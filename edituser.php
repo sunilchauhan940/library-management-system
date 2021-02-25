@@ -1,24 +1,8 @@
-<?php
-include 'connect.php';
-$id = $_REQUEST['id'];
-if (isset($_POST['submit'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
-    $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-    $birth_date = mysqli_real_escape_string($conn, $_POST['birth_date']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
 
-    $update = "UPDATE `users` SET `name` = '$name', `email` = '$email', `mobile` = '$mobile', `birth_date` = '$birth_date', `address` = '$address', `gender` = '$gender' WHERE `users`.`id` = $id";
-
-    if (mysqli_query($conn, $update)) {
-        header("Location:index.php");
-    } else {
-        echo "ERROR: Could not able to execute $update. " . mysqli_error($conn);
-    }
-}
-?>
-<?php include('header.php'); ?>
+<?php 
+    include('header.php');
+    $id = $_REQUEST['id'];
+ ?>
 <div class="container">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -27,8 +11,9 @@ if (isset($_POST['submit'])) {
             <li class="breadcrumb-item active">Edit User</li>
         </ol>
         <br>
-        <form method="post" action="edituser.php?id=<?php echo $id; ?>">
+        <form method="post" action="dbedit.php?id=<?php echo $id; ?>">
         <?php
+            include('connect.php');
             $query = "SELECT * FROM users WHERE id= $id";
             $result = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($result)) {

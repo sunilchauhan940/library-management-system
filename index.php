@@ -45,7 +45,7 @@
                                         <a href="edituser.php?id=<?php echo $result['id']; ?>" class="btn btn-primary">Edit</a>
                                     </td> 
                                     <td>
-                                        <a href="deleteuser.php?id=<?php echo $result['id']; ?>" onclick="return val()" class="btn btn-primary">Delete</a>
+                                        <a href="dbdelete.php?id=<?php echo $result['id']; ?>" onclick="return val()" class="btn btn-primary">Delete</a>
                                     </td>      
                                 </tr>
                                 <?php } ?>
