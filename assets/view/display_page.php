@@ -70,7 +70,7 @@
                                                 <td><?php echo $row->gender;?></td>
                                                 <td><?php echo $row->password;?></td>
                                                 <td><a href="?page=<?php echo $_GET['page']; ?>&edit=<?php echo $row->id?>" class="btn btn-info">Edit</a></td>
-                                                <td><a href="delete_data.php/<?php $row->id ?>" class="btn btn-danger">Delete</a></td>
+                                                <td><a href="<a href=view/delete_data.php?id=<?php $row->id ?>" class="btn btn-danger">Delete</a></td>
                                             </tr>
                                             <?php
                                                 endwhile;

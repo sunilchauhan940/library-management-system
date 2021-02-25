@@ -1,6 +1,7 @@
 <?php
     include "controllers/conn.php";
-    $result = $mysqli->query("select * from librarians where id='$id'") or die($mysqli->error);
+    $result = $mysqli->query("select * from librarians where id=2") or die($mysqli->error);
+    print_r($result);
 ?>
 <div id="layoutSidenav_content">
                 <main>
@@ -16,7 +17,7 @@
                                 while ($row = $result->fetch_object()):
                             ?>
                             <div class="card-body">
-                                <form method="post" action="display_data.php">
+                                <form method="post" action="update.php/<?php $row->id ?>">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">
@@ -77,13 +78,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <?php endwhile ?>
                                     <div class="text-center">
                                         <div class="col-xl-8">
-                                            <input type="submit/<?php $row->id ?>" id="add" class="btn btn-lg btn-success" value="Save" name="submit">
+                                            <input type="submit" id="add" class="btn btn-lg btn-success" value="Save" name="submit">
                                             <input type="reset" class="btn btn-lg btn-danger" name="Reset"/>                                
                                         </div>   
                                     </div>
-                                    <?php endwhile ?>
+                                    
                                 </form>
                             </div>
                         </div>
