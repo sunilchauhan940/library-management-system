@@ -1,5 +1,9 @@
 
 <?php 
+   include('connect.php');
+   if (!isset($_SESSION['user_id'])) {
+       header('Location:login.php');
+   }
     include('header.php');
     $id = $_REQUEST['id'];
  ?>
@@ -10,6 +14,8 @@
             </li>
             <li class="breadcrumb-item active">Edit User</li>
         </ol>
+        <a class="btn btn-default no-bg micheal_btn float-right" data-toggle="modal" data-target=".bs-example-modal-sm">
+    <font color="black"><i class="fa fa-sign-out"></i> Log Out</font></a>
         <br>
         <?php
             include('connect.php');
@@ -98,6 +104,16 @@
         </form>
         <?php } ?>
     </div>
+    <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header"><h4>Logout <i class="fa fa-lock"></i></h4></div>
+                <div class="modal-body"><i class="fa fa-question-circle"></i> Are you sure you want to log-off?</div>
+                <div class="modal-footer"><a href="logout.php" class="btn btn-primary btn-block">Logout</a></div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 </body>
 <script src="js/app.js"></script>

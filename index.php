@@ -1,4 +1,8 @@
-<?php include('connect.php');
+<?php 
+    include('connect.php');
+    if (!isset($_SESSION['user_id'])) {
+        header('Location:login.php');
+    }
     include('header.php'); 
     // include('navbar.php'); 
     $query = "SELECT * FROM users;";
@@ -11,6 +15,8 @@
         </li>
         <li class="breadcrumb-item active">User Details</li>
     </ol>
+    <a class="btn btn-default no-bg micheal_btn float-right" data-toggle="modal" data-target=".bs-example-modal-sm">
+    <font color="black"><i class="fa fa-sign-out"></i> Log Out</font></a>
     <a class="btn btn-dark" href="adduser.php">Add User</a> 
     <br><br>
     <div class="card mb-3">
@@ -62,24 +68,28 @@
                                 </script>
                         </tbody>
                     </table>
-                    <center>
-                        <?php
-                        $query = "SELECT count(*) as count FROM users";
-                        $result = mysqli_query($conn, $query);
-                        $num_users = mysqli_fetch_assoc($result)['count'];
-                        if ($num_users == 0) {
-                            echo "No Users Found";
-                        }
-                        ?>
-                    </center>
                 </div>
             </div>
         </div>
     </div>
+                                    <!-- Small modal -->
+<!-- <button class="btn btn-primary">Logout modal</button> -->
 
+<div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header"><h4>Logout <i class="fa fa-lock"></i></h4></div>
+      <div class="modal-body"><i class="fa fa-question-circle"></i> Are you sure you want to log-off?</div>
+      <div class="modal-footer"><a href="logout.php" class="btn btn-primary btn-block">Logout</a></div>
+    </div>
+  </div>
+</div>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#dataTable').dataTable();
+        $('#dataTable').dataTable({
+            "iDisplayLength": 5,
+	        "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
     });
 </script>
