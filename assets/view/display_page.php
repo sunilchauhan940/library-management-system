@@ -47,8 +47,6 @@
                                         </tfoot>
                                         <?php
                                             while ($row = $result->fetch_object()):
-
-                                                echo "$row->image";
                                                 $imageurl = 'assets/view/images/'.$row->image;
                                         ?>
                                         <tbody>

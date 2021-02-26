@@ -17,7 +17,7 @@
                                 while ($row = $result->fetch_object()):
                             ?>
                             <div class="card-body">
-                                <form method="post" action="assets/view/update.php?id=<?php echo $row->id ?>" enctype="multipart/form-data">
+                                <form method="post" action="assets/view/update.php?id=<?php echo $row->id ?>" enctype="multipart/form-data" id="updateform">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">

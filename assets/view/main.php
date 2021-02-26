@@ -13,12 +13,12 @@
                                 <b>Add Admin</b>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="assets/view/dataInsert.php" enctype="multipart/form-data">
+                                <form method="post" id="addform" action="assets/view/dataInsert.php" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
-                                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter Name..." value="" required>
+                                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter Name..." value="">
                                             </div>
                                         </div>
                                     </div>
