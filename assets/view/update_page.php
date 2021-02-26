@@ -17,7 +17,7 @@
                                 while ($row = $result->fetch_object()):
                             ?>
                             <div class="card-body">
-                                <form method="post" action="assets/view/update.php?id=<?php echo $row->id ?>">
+                                <form method="post" action="assets/view/update.php?id=<?php echo $row->id ?>" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">
@@ -67,6 +67,14 @@
                                                     <option value="female">FEMALE</option>
                                                     <option value="other">OTHER</option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3">Image<i class="text-danger">*</i></label>
+                                        <div class="form-group">
+                                            <div class="col-xs-7">
+                                                <input name="photo" type="file" >
                                             </div>
                                         </div>
                                     </div>

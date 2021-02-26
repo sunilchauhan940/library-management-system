@@ -24,6 +24,7 @@
                                                 <th>BirthDate</th>
                                                 <th>Address</th>
                                                 <th>Gender</th>
+                                                <th>Photo</th>
                                                 <th>Password</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
@@ -38,6 +39,7 @@
                                                 <th>BirthDate</th>
                                                 <th>Address</th>
                                                 <th>Gender</th>
+                                                <th>Photo</th>
                                                 <th>Password</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
@@ -45,6 +47,9 @@
                                         </tfoot>
                                         <?php
                                             while ($row = $result->fetch_object()):
+
+                                                echo "$row->image";
+                                                $imageurl = 'assets/view/images/'.$row->image;
                                         ?>
                                         <tbody>
                                             <tr>
@@ -55,6 +60,7 @@
                                                 <td><?php echo $row->birth_date;?></td>
                                                 <td><?php echo $row->address;?></td>
                                                 <td><?php echo $row->gender;?></td>
+                                                <td><img src="<?php echo $imageurl;?>" alt="image" width="120" height="150"></td>
                                                 <td><?php echo $row->password;?></td>
                                                 <td><a href="update_data.php?id=<?php echo $row->id ?>" class="btn btn-info">Edit</a></td>
                                                 <td><a href="assets/view/delete_data.php?id=<?php echo $row->id ?>" class="btn btn-danger">Delete</a></td>
