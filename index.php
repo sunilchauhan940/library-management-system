@@ -1,5 +1,6 @@
 <?php include('connect.php');
     include('header.php'); 
+    // include('navbar.php'); 
     $query = "SELECT * FROM users;";
     $data = mysqli_query($conn, $query);
 ?>

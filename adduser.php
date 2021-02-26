@@ -7,7 +7,13 @@
             <li class="breadcrumb-item active">Add User</li>
         </ol>
         <br>
-        <form method="post" action="dbinsert.php">
+        <form method="post" id="insertform" action="dbinsert.php">
+            <div class="col-md-8">
+                <div id="profile-container">
+                    <image id="profileImage" src="" />
+                </div>
+                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" capture>
+            </div>
             <div class="col-md-8">
                 <h2><i class="fa fa-user"></i>  Add User</h2>
                 <br>
@@ -75,4 +81,13 @@
     </div>
 </div>
 </body>
+<script>
+function validateform(){
+    $("#insertform").validate({
+    submitHandler: function(form) {
+        $("#insertform).submit();
+  }
+ });
+}
+</script>
 </html>
