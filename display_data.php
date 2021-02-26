@@ -1,5 +1,8 @@
 <?php
-      //include "controllers/conn.php";
+    session_start();
+    if(!isset($_SESSION['admin'])){
+        header("location:login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,6 +12,7 @@
     <title>Admin</title>
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script language="javascript">
     </script>
 </head>

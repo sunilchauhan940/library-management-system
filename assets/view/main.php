@@ -8,6 +8,7 @@
 
                         <div class="card mb-4">
                             <div class="card-header">
+                            <i class="fas fa-user"></i>
                             <!-- <i class="fas fa-table mr-1"></i> -->
                                 <b>Add Admin</b>
                             </div>
