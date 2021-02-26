@@ -13,7 +13,7 @@
                                 <b>Add Admin</b>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="display_data.php">
+                                <form method="post" action="assets/view/dataInsert.php">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">
