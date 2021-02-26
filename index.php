@@ -12,7 +12,6 @@
         <style>
             .error{
                 color:red;
-                font-style: bold;
             }
         </style>
     </head>
@@ -25,8 +24,8 @@
         ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        <script language="javascript" src="controllers/app.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script language="javascript" src="controllers/app.js"></script>
     </body>
 </html>

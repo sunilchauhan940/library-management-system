@@ -8,7 +8,8 @@ $(function(){
                     required:true
                 },
                 email:{
-                    required:true
+                    required:true,
+                    email:true
                 },
                 mobile:{
                     required:true
@@ -27,6 +28,10 @@ $(function(){
                 },
                 password:{
                     required:true
+                },
+                c_password:{
+                    required:true,
+                    equalTo:"#password"
                 }
             },
             messages:{
@@ -34,7 +39,8 @@ $(function(){
                     required:"Please Enter Name..."
                 },
                 email:{
-                    required:"Please Enter Email..."
+                    required:"Please Enter Email...",
+                    email:"Enter Valid Email..."
                 },
                 mobile:{
                     required:"Please Enter Mobile..."
@@ -53,6 +59,10 @@ $(function(){
                 },
                 password:{
                     required:"Please Enter Password..."
+                },
+                c_password:{
+                    required:"Please Confirm Password...",
+                    equalTo:"Password is not match..."
                 }
             }
         })
@@ -69,7 +79,8 @@ $(function(){
                     required:true
                 },
                 email:{
-                    required:true
+                    required:true,
+                    email:true
                 },
                 mobile:{
                     required:true
@@ -88,6 +99,10 @@ $(function(){
                 },
                 password:{
                     required:true
+                },
+                c_password:{
+                    required:true,
+                    equalTo:"#password"
                 }
             },
             messages:{
@@ -95,7 +110,8 @@ $(function(){
                     required:"Please Enter Name..."
                 },
                 email:{
-                    required:"Please Enter Email..."
+                    required:"Please Enter Email...",
+                    email : "Please Enter Valid Email..."
                 },
                 mobile:{
                     required:"Please Enter Mobile..."
@@ -114,6 +130,10 @@ $(function(){
                 },
                 password:{
                     required:"Please Enter Password..."
+                },
+                c_password:{
+                    required:"Please Confirm Password...",
+                    equalTo:"Password is not match..."
                 }
             }
         })
@@ -121,6 +141,9 @@ $(function(){
 })
 
 $(document).ready(function() {
-    $('#dataTable').DataTable();
+    $('#dataTable').DataTable({
+        "iDisplayLength":5,
+        "aLengthMenu":[[5,10,25,50,-1],[5,10,25,50,"All"]]
+    });
 });
   
