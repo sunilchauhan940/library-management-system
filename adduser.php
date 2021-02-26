@@ -7,15 +7,18 @@
             <li class="breadcrumb-item active">Add User</li>
         </ol>
         <br>
-        <form method="post" id="insertform" action="dbinsert.php">
-            <div class="col-md-8">
-                <div id="profile-container">
-                    <image id="profileImage" src="" />
+        <form method="post" id="insertform" action="dbinsert.php" enctype='multipart/form-data'>
+            <div class="row">
+            <div class="col-md-3">
+                <div class="image__upload" id="image-upload">
+                    <label for="file-input">
+                        <img id="profile_pic" src="img/profile.png" />
+                    </label>
+                    <input id="file-input" type="file" name="profile_path" accept="image/x-png,image/gif,image/jpeg" style="cursor: pointer;  display: none" />
                 </div>
-                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" capture>
             </div>
-            <div class="col-md-8">
-                <h2><i class="fa fa-user"></i>  Add User</h2>
+            <div class="col-md-9">
+                <h2> Add User</h2>
                 <br>
                 <div class="row">
                     <div class="col-md-12">
@@ -77,17 +80,10 @@
                 <button type="submit" class="btn btn-primary" name="submit" >Add User</button>
                 <a class="btn btn-primary" href="index.php">Cancel</a> 
             </div>
+            </div>
         </form>
     </div>
 </div>
 </body>
-<script>
-function validateform(){
-    $("#insertform").validate({
-    submitHandler: function(form) {
-        $("#insertform).submit();
-  }
- });
-}
-</script>
+<script src="js/app.js"></script>
 </html>

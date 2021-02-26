@@ -8,8 +8,9 @@ $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
 $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 $birth_date = mysqli_real_escape_string($conn, $_POST['birth_date']);
 $address = mysqli_real_escape_string($conn, $_POST['address']);
+$profile_path = mysqli_real_escape_string($conn, $_FILES['profile_path']['name']);
 
-$update = "UPDATE `users` SET `name` = '$name', `email` = '$email', `mobile` = '$mobile', `birth_date` = '$birth_date', `address` = '$address', `gender` = '$gender' WHERE `users`.`id` = $id";
+$update = "UPDATE `users` SET `name` = '$name', `email` = '$email', `mobile` = '$mobile', `birth_date` = '$birth_date', `address` = '$address', `gender` = '$gender',`profile_path` = '$profile_path' WHERE `users`.`id` = $id";
 
 if (mysqli_query($conn, $update)) {
     header("Location:index.php");

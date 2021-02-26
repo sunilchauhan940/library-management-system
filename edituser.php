@@ -11,13 +11,27 @@
             <li class="breadcrumb-item active">Edit User</li>
         </ol>
         <br>
-        <form method="post" action="dbedit.php?id=<?php echo $id; ?>">
         <?php
             include('connect.php');
             $query = "SELECT * FROM users WHERE id= $id";
             $result = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($result)) {
+                if($row['profile_path']){
+                    $src = "img/".$row['profile_path'];
+                } else{
+                    $src = "img/profile.png";
+                }
             ?>
+        <form method="post" action="dbedit.php?id=<?php echo $id; ?>" enctype='multipart/form-data'>
+            <div class="row">
+            <div class="col-md-3">
+                <div class="image__upload" id="image-upload">
+                    <label for="file-input">
+                        <img id="profile_pic" src="<?php echo $src ?>" />
+                    </label>
+                    <input id="file-input" type="file" name="profile_path" accept="image/x-png,image/gif,image/jpeg" style="cursor: pointer;  display: none" />
+                </div>
+            </div>
             <div class="col-md-8">
                 <h2><i class="fa fa-user"></i>  Edit User</h2>
                 <br>
@@ -80,9 +94,11 @@
                 <button type="submit" class="btn btn-primary" name="submit" >Edit User</button>
                 <a class="btn btn-primary" href="index.php">Cancel</a> 
             </div>
+            </div>
         </form>
         <?php } ?>
     </div>
 </div>
 </body>
+<script src="js/app.js"></script>
 </html>

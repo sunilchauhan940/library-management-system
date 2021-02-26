@@ -8,6 +8,8 @@ $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 $birth_date = mysqli_real_escape_string($conn, $_POST['birth_date']);
 $address = mysqli_real_escape_string($conn, $_POST['address']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
+$profile_path = mysqli_real_escape_string($conn, $_POST['profile_path']);
+
 //$pass = md5($password);
 $sql = "SELECT id FROM users WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
@@ -15,7 +17,7 @@ if ($result->num_rows > 0) {
     echo '<script type="text/javascript">alert("Email already used before");</script>';
     exit();
 } else {
-    $sql = "INSERT INTO `users` (`name`, `email`, `mobile`, `birth_date`, `address`, `gender`, `password`) VALUES ('$name', '$email',$mobile,'$birth_date','$address', '$gender','$password');";
+    $sql = "INSERT INTO `users` (`name`, `email`, `mobile`, `birth_date`, `address`, `gender`, `password`,`profile_path`) VALUES ('$name', '$email',$mobile,'$birth_date','$address', '$gender','$password','$profile_path');";
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Registered Successfully');</script>";
         header('Location:index.php');
