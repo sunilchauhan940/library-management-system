@@ -1,7 +1,7 @@
 <?php
     include "controllers/conn.php";
-    $result = $mysqli->query("select * from librarians where id=2") or die($mysqli->error);
-    print_r($result);
+    $id = $_REQUEST['id'];
+    $result = $mysqli->query("select * from librarians where id='$id'") or die($mysqli->error);
 ?>
 <div id="layoutSidenav_content">
                 <main>
@@ -17,12 +17,12 @@
                                 while ($row = $result->fetch_object()):
                             ?>
                             <div class="card-body">
-                                <form method="post" action="update.php/<?php $row->id ?>">
+                                <form method="post" action="assets/view/update.php?id=<?php echo $row->id ?>">
                                     <div class="form-group row">
                                         <label class="col-xl-3">Name<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
-                                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter Name..." value="<?php $row->name ?>" required>
+                                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter Name..." value="<?php echo  $row->name ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -30,7 +30,7 @@
                                         <label class="col-xl-3">Email<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
-                                                <input name="email" type="text" class="form-control" id="" placeholder="Enter Email..." value="<?php $row->email ?>" required>
+                                                <input name="email" type="text" class="form-control" id="" placeholder="Enter Email..." value="<?php echo  $row->email ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                         <label class="col-xl-3">Mobile<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
-                                                <input name="mobile" type="text" class="form-control" id="" placeholder="Enter Mobile..." value="<?php $row->mobile ?>" required>
+                                                <input name="mobile" type="text" class="form-control" id="" placeholder="Enter Mobile..." value="<?php echo $row->mobile ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                         <label class="col-xl-3">BirthDate<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
-                                                <input name="birth_date" type="date" class="form-control" id="" placeholder="" value="<?php $row->date ?>" required>
+                                                <input name="birth_date" type="date" class="form-control" id="" placeholder="" value="<?php echo  $row->birth_date ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                         <label class="col-xl-3">Address<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
-                                                <textarea class="textarea" placeholder="Enter Address..." name= "address" style="width: 300%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php $row->address ?></textarea>
+                                                <textarea class="textarea" placeholder="Enter Address..." name= "address" style="width: 300%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo  $row->address ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                         <label class="col-xl-3">Password<i class="text-danger">*</i></label>
                                         <div class="form-group">
                                             <div class="col-xs-7">
-                                                <input name="password" type="text" class="form-control" id="" placeholder="Enter Pasword..." value="<?php $row->password ?>" required>
+                                                <input name="password" type="text" class="form-control" id="" placeholder="Enter Pasword..." value="<?php echo  $row->password ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +85,6 @@
                                             <input type="reset" class="btn btn-lg btn-danger" name="Reset"/>                                
                                         </div>   
                                     </div>
-                                    
                                 </form>
                             </div>
                         </div>

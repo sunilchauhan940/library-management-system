@@ -1,10 +1,11 @@
 <?php
-    
-        $id = $_GET['delete'];
+    include "../../controllers/conn.php";
 
-        $status = $mysqli->query("DELETE FROM `librarians` WHERE $id =`id`") or die($mysqli->error);
+    $id = $_REQUEST['id'];
 
-        if ($status) {
-            header("location: /structure/?page={$_GET['page']}");
-        }
+    $status = $mysqli->query("DELETE FROM `librarians` WHERE $id =`id`") or die($mysqli->error);
+
+    if ($status) {
+        header("location: ../../display_data.php");
+    }
 ?>
