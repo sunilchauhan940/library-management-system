@@ -1,1 +1,6 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+.error{
+    color: rgb(243, 2, 2)  !important;
+}
+.paginate_disabled_previous{
+    margin-right: 10px;
+}

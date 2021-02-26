@@ -8,8 +8,12 @@ $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 $birth_date = mysqli_real_escape_string($conn, $_POST['birth_date']);
 $address = mysqli_real_escape_string($conn, $_POST['address']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
-$profile_path = mysqli_real_escape_string($conn, $_POST['profile_path']);
 
+if(isset($_POST['profile_path'])){
+    $profile_path = mysqli_real_escape_string($conn, $_POST['profile_path']);
+}else{
+    $profile_path ="img/profile.png";
+}
 //$pass = md5($password);
 $sql = "SELECT id FROM users WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);

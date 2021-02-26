@@ -24,7 +24,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="name" id="name" required class="form-control" placeholder="Name">
+                            <input type="text" name="name" id="name" required  class="form-control" placeholder="Name">
                         </div>
                     </div>
                 </div>

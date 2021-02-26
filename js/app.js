@@ -23,10 +23,16 @@ function uploadimage(){
 		}, 
 	}); 
 }
-function validateform(){
-    $("#insertform").validate({
-    submitHandler: function(form) {
-        form.submit();
-  }
- });
-}
+$(document).ready(function () {
+	$("#insertform").validate({
+	submitHandler: function(form) {
+	  form.submit();
+	}
+  });
+  $("#search-Input").on("keyup", function () {
+	var value = $(this).val().toLowerCase();
+	$("#myTable tr").filter(function () {
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	});
+});
+});
