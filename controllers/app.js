@@ -143,7 +143,8 @@ $(function(){
 $(document).ready(function() {
     $('#dataTable').DataTable({
         "iDisplayLength":5,
-        "aLengthMenu":[[5,10,25,50,-1],[5,10,25,50,"All"]]
+        "aLengthMenu":[[5,10,25,50,-1],[5,10,25,50,"All"]],
+        
     });
 });
   
